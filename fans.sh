@@ -2,6 +2,8 @@
 #
 # This file is part of nitro-5-fanspeed-hack
 #
+# This script has NO WARRANTY and is to be USED AT YOUR OWN RISK
+#
 # Simple script/hack to control fanspeed based on tempature this should give
 # users back control while waiting for kernel support of fanspeed control for
 # the "Acer Nitro 5"

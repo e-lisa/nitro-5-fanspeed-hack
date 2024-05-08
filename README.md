@@ -1,3 +1,7 @@
+# Legal disclaimer
+
+This script has NO WARRANTY and is to be USED AT YOUR OWN RISK
+
 # What is this?
 
 This is a quick and dirty hack for the "Acer Nitro 5" to enable temperature based fan-speed control
