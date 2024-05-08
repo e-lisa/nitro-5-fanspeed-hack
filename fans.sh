@@ -14,8 +14,8 @@
 #
 # Copyright 2024 Lisa Marie Maginnis
 
-
-fan_speed=5
+fan_speed=5 # Starting fanspeed when script starts
+poll=1 # Polling time in seconds for adjust fanspeed
 
 echo $fan_speed >/tmp/fanspeed # Write out current fanspeed
 
@@ -33,26 +33,26 @@ is_low() {
 }
 nitrosense c $fan_speed &>/dev/null
 while [ 1 ]; do
-    sleep 1
+    sleep $poll # Poll time, default 1 second
 
     is_high
 
-    if [[ $? -eq 0 ]]; then # If tempature is not high"
+    if [[ $? -eq 0 ]]; then # If temp is high
         is_low
-        if [[ $? -ne 0 ]]; then
-            if [[ fan_speed -lt 100 ]]; then
-                fan_speed=$(($fan_speed+5))
-                nitrosense c $fan_speed &>/dev/null
+        if [[ $? -ne 0 ]]; then # If temp not low
+            if [[ fan_speed -lt 100 ]]; then # If current speed less than 100
+                fan_speed=$(($fan_speed+5)) # Set the fanspeed +5%
+                nitrosense c $fan_speed &>/dev/null # Adjust fanspeed
                 echo $fan_speed >/tmp/fanspeed # Write out current fanspeed
             fi
         fi
         continue
     fi
     is_low
-    if [[ $? -eq 0 ]]; then
-        if [[ fan_speed -gt 5 ]]; then
-            fan_speed=$(($fan_speed-5))
-            nitrosense c $fan_speed &>/dev/null
+    if [[ $? -eq 0 ]]; then # If temp low
+        if [[ fan_speed -gt 5 ]]; then # If current speed greater than 5
+            fan_speed=$(($fan_speed-5)) # Set the fanspeed -5%
+            nitrosense c $fan_speed &>/dev/null # Adjust fanspeed
             echo $fan_speed >/tmp/fanspeed # Writeout current fanspeed
         fi
         continue
