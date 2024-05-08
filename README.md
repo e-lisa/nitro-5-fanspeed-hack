@@ -17,21 +17,24 @@ This script is not meant to be the "right way of doing this" but rather a low ef
 
 ## Debian/Ubuntu
 
-1) Clone repository
+1) Clone repository:
 `git clone https://github.com/e-lisa/nitro-5-fanspeed-hack`
 
-2) Install lm-sensors and GNU Make
+2) Change directories to the repository:
+`cd nitro-5-fanspeed-hack`
+
+3) Install lm-sensors and GNU Make:
 `sudo apt install lm-sensors make`
 
-3) Configure sensors:
+4) Configure sensors:
 `yes |sudo sensors-detect`
 
-4) Install the service and scripts
+5) Install the service and scripts:
 `sudo make`
 
 # Remove
 
-1) Chagne directories to the repository:
+1) Change directories to the repository:
 `cd nitro-5-fanspeed-hack`
 
 2) Stop the service:
