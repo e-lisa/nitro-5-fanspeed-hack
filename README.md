@@ -17,6 +17,8 @@ This script is not meant to be the "right way of doing this" but rather a low ef
 
 ## Debian/Ubuntu
 
+These steps will install and configure the service to control you fans based on temperature. To test if it is running you can run: `systemctl status nitro5-fan-speed-hack.service`
+
 1) Clone repository:
 `git clone https://github.com/e-lisa/nitro-5-fanspeed-hack`
 
