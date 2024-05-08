@@ -1,0 +1,12 @@
+[Unit]
+Description=Nitro 5 Fan Speed Hack
+
+[Service]
+Environment=
+User=root
+WorkingDirectory=/tmp
+ExecStart=/usr/local/bin/fans.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
