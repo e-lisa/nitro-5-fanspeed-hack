@@ -44,3 +44,9 @@ These steps will install and configure the service to control you fans based on 
 
 3) Run the uninstall script:
 `make uninstall`
+
+# Notes
+
+The current fan-speed % is stored in `/tmp/fanspeed` and can be viewed with `cat /tmp/fanspeed` eg: 5 would be 5%
+
+Happy Hacking!
