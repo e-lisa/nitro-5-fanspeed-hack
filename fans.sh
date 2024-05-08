@@ -31,7 +31,7 @@ is_low() {
     sensors | grep -v 'Composite' | grep -v temp1 |sed 's/high.*//'|\
         grep -v \(crit |\
         sed -n 's/.*\(\+[0-9+.]*°C\).*/\1/p' |\
-        egrep '5[0-9].' &>/dev/null
+        egrep -e '5[0-9].' -e '4[0-9].' &>/dev/null
 }
 nitrosense c $fan_speed &>/dev/null
 while [ 1 ]; do
